@@ -3,7 +3,7 @@ FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
-
+RUN ls -la
 # Copy package files
 COPY package*.json ./
 
