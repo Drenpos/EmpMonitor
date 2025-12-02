@@ -1,17 +1,18 @@
-# Use Node.js 20 Alpine as base image
-FROM node:20-alpine
+# Use Node.js 18 Alpine as base image
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files first for better layer caching
-COPY package.json  ./
+# Copy package files
+COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --omit=dev
+# RUN npm ci --only=production
+RUN npm install --omit=dev
 
-# Install global dependencies
 RUN npm install -g pm2
+RUN npm install -g nodemon
 
 # Copy application code
 COPY . .
