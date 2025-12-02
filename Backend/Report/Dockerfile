@@ -17,8 +17,8 @@ RUN npm install -g nodemon
 # Copy application code
 COPY . .
 
-# Create .env file from sample
-RUN cp sample.env .env
+# # Create .env file from sample
+# RUN cp sample.env .env
 
 # Expose port
 EXPOSE 5003
