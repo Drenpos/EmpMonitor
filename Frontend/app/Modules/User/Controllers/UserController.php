@@ -60,6 +60,7 @@ class UserController extends Controller
             $password = base64_decode($password);
             if (isset($username) && isset($password)) { 
                 $api_url = env('MAIN_API').'admin/login';
+                Log::info("Attempting login for user: " . $api_url);
                 $method = "post";  
                 $amemberData = array(
                     "email" => $username,
